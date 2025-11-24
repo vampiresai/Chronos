@@ -72,10 +72,3 @@ npm run dev
 npm run dev
 ```
 
-## Security Notes
-
-- ✅ Gemini API key is now protected (server-side only)
-- ✅ Firebase config uses environment variables
-- ✅ Security rules protect your data
-- ⚠️ Make sure to deploy Firebase rules before production use
-
