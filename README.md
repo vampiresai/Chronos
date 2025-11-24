@@ -1,4 +1,4 @@
-## 📖 Table of Contents
+## Table of Contents
 
 - [About](#-about)
 - [Features](#-features)
@@ -15,7 +15,7 @@
 
 ---
 
-## 🎯 About
+## About
 
 Chronos is a modern, secure time capsule application that allows users to create digital memories sealed in time. Write messages, attach photos and videos, and set them to unlock at a future date. When the time comes, experience the joy of rediscovering your past thoughts and memories.
 
@@ -28,22 +28,22 @@ Chronos is a modern, secure time capsule application that allows users to create
 
 ---
 
-## ✨ Features
+## Features
 
-### 🔐 Authentication & Security
+### Authentication & Security
 - **Secure User Authentication**: Firebase Authentication with email/password
 - **User Profiles**: Personalized accounts with display names
 - **Data Privacy**: Each user can only access their own capsules
 - **Protected API Keys**: Backend proxy protects sensitive API keys
 
-### 📝 Time Capsule Creation
+### Time Capsule Creation
 - **Rich Text Messages**: Write detailed messages to your future self
 - **Media Attachments**: Upload images, videos, and audio files (up to 10MB each)
 - **AI-Powered Letter Generation**: Use Gemini AI to transform rough thoughts into beautiful letters
 - **Custom Unlock Dates**: Set any future date for your capsule to unlock
 - **Quick Notes**: Fast capture widget for spontaneous thoughts
 
-### 🎨 User Interface
+### User Interface
 - **Three Main Views**:
   - **Dashboard**: Overview with stats, next unlock countdown, and recent capsules
   - **Timeline**: Chronological view of all capsules organized by year
@@ -52,18 +52,18 @@ Chronos is a modern, secure time capsule application that allows users to create
 - **Responsive Design**: Works on desktop and mobile devices
 - **Loading Screen**: Animated loading screen on app startup
 
-### ⏱️ Time Management
+### Time Management
 - **Countdown Timers**: Real-time countdown to next capsule unlock
 - **Progress Tracking**: Visual progress bars showing time until unlock
 - **Status Indicators**: Clear visual indicators for locked/unlocked capsules
 - **Automatic Unlocking**: Capsules automatically become available when the date arrives
 
-### 🎵 Interactive Experience
+### Interactive Experience
 - **Sound Effects**: Audio feedback for user interactions
 - **Smooth Animations**: Polished transitions and hover effects
 - **Visual Feedback**: Loading states, success messages, and error handling
 
-### 🔒 Security Features
+### Security Features
 - **Firebase Security Rules**: Strict access control for database and storage
 - **Rate Limiting**: Prevents API abuse (10 requests/minute)
 - **CORS Protection**: Secure cross-origin requests
@@ -71,7 +71,7 @@ Chronos is a modern, secure time capsule application that allows users to create
 
 ---
 
-## 🔧 How It Works
+## How It Works
 
 ### Architecture
 
@@ -113,7 +113,7 @@ User Action → Frontend → Firebase Auth
 
 ---
 
-## 📋 Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have the following installed:
 
@@ -124,7 +124,7 @@ Before you begin, ensure you have the following installed:
 
 ---
 
-## 📥 Installation
+## Installation
 
 ### 1. Clone or Download the Repository
 
@@ -152,7 +152,7 @@ cd ..
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 ### 1. Firebase Setup
 
@@ -172,15 +172,15 @@ Create `.env.local` in the root directory:
 # Backend API URL (required for AI features)
 VITE_API_URL=http://localhost:3001
 
-# Firebase Configuration (optional - has defaults for development)
-VITE_FIREBASE_API_KEY=your_firebase_api_key
-VITE_FIREBASE_AUTH_DOMAIN=chronos-725d2.firebaseapp.com
-VITE_FIREBASE_DATABASE_URL=https://chronos-725d2-default-rtdb.firebaseio.com
-VITE_FIREBASE_PROJECT_ID=chronos-725d2
-VITE_FIREBASE_STORAGE_BUCKET=chronos-725d2.firebasestorage.app
-VITE_FIREBASE_MESSAGING_SENDER_ID=198698324830
-VITE_FIREBASE_APP_ID=1:198698324830:web:e86fbede8b6ebc5790f5cf
-VITE_FIREBASE_MEASUREMENT_ID=G-SV7YE8YZSL
+# VITE_FIREBASE_API_KEY=YOUR_FIREBASE_API_KEY
+VITE_FIREBASE_AUTH_DOMAIN=YOUR_FIREBASE_AUTH_DOMAIN
+VITE_FIREBASE_DATABASE_URL=YOUR_FIREBASE_DATABASE_URL
+VITE_FIREBASE_PROJECT_ID=YOUR_FIREBASE_PROJECT_ID
+VITE_FIREBASE_STORAGE_BUCKET=YOUR_FIREBASE_STORAGE_BUCKET
+VITE_FIREBASE_MESSAGING_SENDER_ID=YOUR_FIREBASE_MESSAGING_SENDER_ID
+VITE_FIREBASE_APP_ID=YOUR_FIREBASE_APP_ID
+VITE_FIREBASE_MEASUREMENT_ID=YOUR_FIREBASE_MEASUREMENT_ID
+
 ```
 
 #### Backend Configuration (`server/.env`)
@@ -232,7 +232,7 @@ See [DEPLOY_FIREBASE_RULES.md](./DEPLOY_FIREBASE_RULES.md) for detailed instruct
 
 ---
 
-## 🚀 Running the Application
+## Running the Application
 
 ### Development Mode
 
@@ -271,7 +271,7 @@ Open your browser and navigate to:
 
 ---
 
-## 🏗️ Building for Production
+## Building for Production
 
 ### Build Frontend
 
@@ -326,7 +326,7 @@ npm run preview
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 chronos/
@@ -358,7 +358,7 @@ chronos/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - **React 19.2.0** - UI framework
@@ -382,11 +382,11 @@ chronos/
 
 ---
 
-## 🔒 Security
+##  Security
 
 This application implements multiple security layers:
 
-### ✅ Implemented Security Features
+###  Implemented Security Features
 
 1. **API Key Protection**
    - Gemini API key stored server-side only
@@ -413,74 +413,10 @@ See [SECURITY.md](./SECURITY.md) for detailed security documentation.
 
 ---
 
-## 🐛 Troubleshooting
 
-### Common Issues
-
-#### Backend Server Won't Start
-- **Issue**: Port 3001 already in use
-- **Solution**: Change `PORT` in `server/.env` or kill the process using port 3001
-
-#### Gemini API Not Working
-- **Issue**: "API key not found" error
-- **Solution**: 
-  1. Check `server/.env` has `GEMINI_API_KEY` set
-  2. Restart the backend server
-  3. Verify backend is running on correct port
-
-#### Firebase Connection Errors
-- **Issue**: "Permission denied" errors
-- **Solution**: 
-  1. Deploy Firebase security rules (see Configuration section)
-  2. Check Firebase project ID matches your config
-  3. Verify authentication is enabled in Firebase Console
-
-#### Media Upload Fails
-- **Issue**: Files not uploading
-- **Solution**:
-  1. Check file size (must be < 10MB)
-  2. Verify Firebase Storage is enabled
-  3. Deploy storage security rules
-  4. Check browser console for errors
-
-#### CORS Errors
-- **Issue**: "CORS policy" errors in console
-- **Solution**: 
-  1. Update `ALLOWED_ORIGIN` in `server/.env` to match your frontend URL
-  2. Restart backend server
-
-### Getting Help
-
-1. Check the [SECURITY.md](./SECURITY.md) for security-related issues
-2. Review [SETUP.md](./SETUP.md) for detailed setup instructions
-3. Check browser console and terminal for error messages
-4. Verify all environment variables are set correctly
-
----
-
-## 📝 License
-
-This project is private and proprietary.
-
----
-
-## 🙏 Acknowledgments
-
-- Built with [React](https://react.dev/)
-- Powered by [Firebase](https://firebase.google.com/)
-- AI features by [Google Gemini](https://deepmind.google/technologies/gemini/)
-- Icons by [Lucide](https://lucide.dev/)
-
----
-
-## 📞 Support
-
-For issues, questions, or contributions, please refer to the project documentation or contact the maintainers.
-
----
 
 <div align="center">
 
-**Made with ⏰ for preserving memories across time**
+**Made with for preserving memories across time**
 
 </div>
