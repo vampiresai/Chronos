@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chronos Time Capsule</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏰</text></svg>" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Outfit', sans-serif;
+        background-color: #020617; /* Slate 950 */
+        color: white;
+        overflow-x: hidden;
+      }
+      
+      h1, h2, h3, .font-display {
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      /* Animations */
+      @keyframes float-slow {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+      }
+      .animate-float-slow {
+        animation: float-slow 8s ease-in-out infinite;
+      }
+      
+      @keyframes slideInUp {
+        from { transform: translateY(30px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      .animate-slide-up {
+        animation: slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      @keyframes zoom-in-subtle {
+        from { transform: scale(0.92); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+      .animate-zoom-in-subtle {
+        animation: zoom-in-subtle 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 10px rgba(139, 92, 246, 0.1); }
+        50% { box-shadow: 0 0 25px rgba(139, 92, 246, 0.4); }
+      }
+      .animate-pulse-glow {
+        animation: pulse-glow 3s infinite;
+      }
+      
+      /* Cosmic Unlock Animations */
+      @keyframes cosmic-pulse {
+        0%, 100% { transform: scale(1); opacity: 0.6; filter: blur(2px); box-shadow: 0 0 30px rgba(99, 102, 241, 0.3); }
+        50% { transform: scale(1.1); opacity: 1; filter: blur(0px); box-shadow: 0 0 60px rgba(168, 85, 247, 0.6); }
+      }
+      .animate-cosmic-pulse {
+        animation: cosmic-pulse 4s ease-in-out infinite;
+      }
+
+      @keyframes orbit-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .animate-orbit-slow {
+        animation: orbit-slow 20s linear infinite;
+      }
+      
+      @keyframes orbit-reverse {
+        from { transform: rotate(360deg); }
+        to { transform: rotate(0deg); }
+      }
+      .animate-orbit-reverse {
+        animation: orbit-reverse 15s linear infinite;
+      }
+
+      @keyframes shimmer-fade {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+
+      @keyframes grain {
+        0%, 100% { transform: translate(0, 0); }
+        10% { transform: translate(-5%, -10%); }
+        20% { transform: translate(-15%, 5%); }
+        30% { transform: translate(7%, -25%); }
+        40% { transform: translate(-5%, 25%); }
+        50% { transform: translate(-15%, 10%); }
+        60% { transform: translate(15%, 0%); }
+        70% { transform: translate(0%, 15%); }
+        80% { transform: translate(3%, 35%); }
+        90% { transform: translate(-10%, 10%); }
+      }
+      .bg-grain {
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        right: -50%;
+        bottom: -50%;
+        width: 200%;
+        height: 200%;
+        background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+        background-repeat: repeat;
+        animation: grain 8s steps(10) infinite;
+        opacity: 0.03;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .bg-grid {
+        background-size: 40px 40px;
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      }
+
+      /* Stars & Shooting Stars */
+      @keyframes twinkle {
+        0%, 100% { opacity: 0.2; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 4px rgba(255, 255, 255, 0.8); }
+      }
+      .star-twinkle {
+        position: absolute;
+        border-radius: 50%;
+        background-color: white;
+        animation: twinkle 3s ease-in-out infinite;
+      }
+      
+      @keyframes shoot {
+        0% { transform: translate(0, 0) rotate(45deg) scale(1); opacity: 0; }
+        15% { opacity: 1; }
+        30% { opacity: 1; }
+        100% { transform: translate(300px, 300px) rotate(45deg) scale(0.1); opacity: 0; }
+      }
+      .shooting-star {
+        position: absolute;
+        width: 150px;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,1));
+        filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
+        /* Animation duration is controlled via style injection in JS now */
+        opacity: 0;
+        z-index: 0;
+        pointer-events: none;
+      }
+      .shooting-star::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: white;
+        box-shadow: 0 0 8px #fff;
+      }
+
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              glass: "rgba(255, 255, 255, 0.03)",
+              glassBorder: "rgba(255, 255, 255, 0.08)",
+              primary: "#8b5cf6",
+              neon: "#00f0ff",
+            },
+            backdropBlur: {
+              xs: '2px',
+              xl: '20px',
+            },
+            animation: {
+              'spin-slow': 'spin 12s linear infinite',
+              'spin-reverse-slow': 'spin-reverse 12s linear infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "firebase/app": "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js",
+    "firebase/auth": "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js",
+    "firebase/firestore": "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.6.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <!-- Noise overlay -->
+    <div class="bg-grain"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

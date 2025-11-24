@@ -1,0 +1,38 @@
+{
+  "rules": {
+    "users": {
+      "$userId": {
+        ".read": "$userId === auth.uid",
+        ".write": "$userId === auth.uid",
+        "capsules": {
+          ".read": "$userId === auth.uid",
+          ".write": "$userId === auth.uid",
+          "$capsuleId": {
+            ".read": "$userId === auth.uid",
+            ".write": "$userId === auth.uid",
+            ".validate": "newData.hasChildren(['userId', 'title', 'message', 'createdAt', 'unlockAt', 'status', 'attachments', 'themeColor']) && newData.child('userId').val() === $userId && newData.child('status').val().matches(/^(LOCKED|UNLOCKED|OPENED)$/)"
+          }
+        },
+        "email": {
+          ".read": "$userId === auth.uid",
+          ".write": "$userId === auth.uid"
+        },
+        "displayName": {
+          ".read": "$userId === auth.uid",
+          ".write": "$userId === auth.uid"
+        },
+        "createdAt": {
+          ".read": "$userId === auth.uid",
+          ".write": false
+        },
+        "lastLoginAt": {
+          ".read": "$userId === auth.uid",
+          ".write": "$userId === auth.uid"
+        }
+      }
+    },
+    ".read": false,
+    ".write": false
+  }
+}
+

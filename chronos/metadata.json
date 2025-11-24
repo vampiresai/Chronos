@@ -1,0 +1,8 @@
+{
+  "name": "Chronos - Time Capsule",
+  "description": "A futuristic digital time capsule app to send messages, photos, and memories to your future self.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
