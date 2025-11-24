@@ -16,7 +16,7 @@ npm install
 
 Create `server/.env`:
 ```env
-GEMINI_API_KEY=AIzaSyDqyG6M37fQzus03SwWj7ZB6dHUuL1KkLU
+GEMINI_API_KEY="YOUR-API-KEY"
 ALLOWED_ORIGIN=http://localhost:3000
 PORT=3001
 ```
