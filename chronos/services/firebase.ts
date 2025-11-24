@@ -9,22 +9,14 @@ import { getStorage } from "firebase/storage";
 // Loaded from environment variables for security
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  // @ts-ignore - Vite injects import.meta.env
-  apiKey: import.meta.env?.VITE_FIREBASE_API_KEY || "AIzaSyAIe3S8wG4-QQlHU8lNuPG8EiUIjJLunt0",
-  // @ts-ignore
-  authDomain: import.meta.env?.VITE_FIREBASE_AUTH_DOMAIN || "chronos-725d2.firebaseapp.com",
-  // @ts-ignore
-  databaseURL: import.meta.env?.VITE_FIREBASE_DATABASE_URL || "https://chronos-725d2-default-rtdb.firebaseio.com",
-  // @ts-ignore
-  projectId: import.meta.env?.VITE_FIREBASE_PROJECT_ID || "chronos-725d2",
-  // @ts-ignore
-  storageBucket: import.meta.env?.VITE_FIREBASE_STORAGE_BUCKET || "chronos-725d2.firebasestorage.app",
-  // @ts-ignore
-  messagingSenderId: import.meta.env?.VITE_FIREBASE_MESSAGING_SENDER_ID || "198698324830",
-  // @ts-ignore
-  appId: import.meta.env?.VITE_FIREBASE_APP_ID || "1:198698324830:web:e86fbede8b6ebc5790f5cf",
-  // @ts-ignore
-  measurementId: import.meta.env?.VITE_FIREBASE_MEASUREMENT_ID || "G-SV7YE8YZSL"
+  apiKey: "YOUR_FIREBASE_API_KEY",
+  authDomain: "YOUR_FIREBASE_AUTH_DOMAIN",
+  databaseURL: "YOUR_FIREBASE_DATABASE_URL",
+  projectId: "YOUR_FIREBASE_PROJECT_ID",
+  storageBucket: "YOUR_FIREBASE_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_FIREBASE_MESSAGING_SENDER_ID",
+  appId: "YOUR_FIREBASE_APP_ID",
+  measurementId: "YOUR_FIREBASE_MEASUREMENT_ID"
 };
 
 // Initialize Firebase
