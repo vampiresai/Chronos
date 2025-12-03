@@ -1,0 +1,15 @@
+## Netlify configuration for Chronos (Vite + React)
+
+[build]
+  # Vite build command
+  command = "npm run build"
+  # Vite outputs static assets to `dist` by default
+  publish = "dist"
+
+## Single Page App routing – serve index.html for all routes
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+
