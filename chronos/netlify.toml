@@ -1,18 +1,1 @@
-## Netlify configuration for Chronos (Vite + React)
-
-[build]
-  # If this file is placed at the GitHub repo root (vampiresai/Chronos),
-  # the frontend app lives in the "chronos" subfolder.
-  base = "chronos"
-  command = "npm run build"
-  publish = "dist"
-
-[build.environment]
-  NODE_VERSION = "20.10.0"
-
-## Single Page App routing – serve index.html for all routes
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
+{ "name": "chronos---time-capsule", "private": true, "version": "0.0.0", "type": "module", "scripts": { "dev": "vite", "build": "vite build", "preview": "vite preview", "server": "cd server && npm run dev", "dev:all": "concurrently \"npm run dev\" \"npm run server\"" }, "dependencies": { "react": "^19.2.0", "lucide-react": "^0.554.0", "@google/genai": "^1.30.0", "react-dom": "^19.2.0", "firebase": "^12.6.0" }, "devDependencies": { "@types/node": "^22.14.0", "@vitejs/plugin-react": "^5.0.0", "typescript": "~5.8.2", "vite": "^6.2.0" } }
