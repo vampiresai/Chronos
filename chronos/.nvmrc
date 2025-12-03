@@ -1,8 +1,2 @@
-*** Begin Patch
-*** Update File: .nvmrc
--20
--
--
-+20.10.0
-+
-*** End Patch
+20.10.0
+
