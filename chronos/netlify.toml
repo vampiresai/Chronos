@@ -1,9 +1,18 @@
+## Netlify configuration for Chronos (Vite + React)
+
 [build]
+  # If this file is placed at the GitHub repo root (vampiresai/Chronos),
+  # the frontend app lives in the "chronos" subfolder.
   base = "chronos"
   command = "npm run build"
   publish = "dist"
 
+[build.environment]
+  NODE_VERSION = "20.10.0"
+
+## Single Page App routing – serve index.html for all routes
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
